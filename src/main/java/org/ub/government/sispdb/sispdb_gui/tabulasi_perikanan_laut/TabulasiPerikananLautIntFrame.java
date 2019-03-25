@@ -5,6 +5,13 @@
  */
 package org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_laut;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_laut.*;
 
 
@@ -38,6 +45,204 @@ public class TabulasiPerikananLautIntFrame extends javax.swing.JInternalFrame {
         
         label_DetilLokasi.setText("");
     }
+
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    public JButton getBtnBrowseLokasi() {
+        return btnBrowseLokasi;
+    }
+
+    public JButton getBtnBrowse_IkanJenis() {
+        return btnBrowse_IkanJenis;
+    }
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public JButton getBtnCari() {
+        return btnCari;
+    }
+
+    public JButton getBtnDeleteForm() {
+        return btnDeleteForm;
+    }
+
+    public JButton getBtnEdit() {
+        return btnEdit;
+    }
+
+    public JButton getBtnEditForm() {
+        return btnEditForm;
+    }
+
+    public JButton getBtnNewForm() {
+        return btnNewForm;
+    }
+
+    public JButton getBtnRem() {
+        return btnRem;
+    }
+
+    public JButton getBtnSave() {
+        return btnSave;
+    }
+
+    public JButton getBtn_BrowseAlatTangkap() {
+        return btn_BrowseAlatTangkap;
+    }
+
+    public JComboBox getCombo_AlatTangkap() {
+        return combo_AlatTangkap;
+    }
+
+    public JComboBox getCombo_Enumerator() {
+        return combo_Enumerator;
+    }
+
+    public JComboBox getCombo_IkanJenis() {
+        return combo_IkanJenis;
+    }
+
+    public JComboBox getCombo_Lokasi() {
+        return combo_Lokasi;
+    }
+
+    public JComboBox getCombo_Lokasi1() {
+        return combo_Lokasi1;
+    }
+
+    public JButton getjButton12() {
+        return jButton12;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JLabel getjLabel10() {
+        return jLabel10;
+    }
+
+    public JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public JLabel getjLabel13() {
+        return jLabel13;
+    }
+
+    public JLabel getjLabel14() {
+        return jLabel14;
+    }
+
+    public JLabel getjLabel15() {
+        return jLabel15;
+    }
+
+    public JLabel getjLabel16() {
+        return jLabel16;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public JLabel getLabel_DetilLokasi() {
+        return label_DetilLokasi;
+    }
+
+    public JTextField getTf_Faktor() {
+        return tf_Faktor;
+    }
+
+    public JTextField getTf_Harga() {
+        return tf_Harga;
+    }
+
+    public JTextField getTf_ID() {
+        return tf_ID;
+    }
+
+    public JTextField getTf_Jumlah() {
+        return tf_Jumlah;
+    }
+
+    public JTextField getTf_JumlahAbk() {
+        return tf_JumlahAbk;
+    }
+
+    public JTextField getTf_Lawuhan() {
+        return tf_Lawuhan;
+    }
+
+    public JTextField getTf_NamaKapal() {
+        return tf_NamaKapal;
+    }
+
+    public JTextField getTf_Tanggal() {
+        return tf_Tanggal;
+    }
+
+    public JTextField getTf_Wpp() {
+        return tf_Wpp;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

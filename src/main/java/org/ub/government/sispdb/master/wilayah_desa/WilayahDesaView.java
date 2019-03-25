@@ -15,6 +15,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
@@ -103,9 +105,12 @@ public class WilayahDesaView extends FormTemplate1_IntFrame{
 
 			getBtnFilter().setVisible(false);
 			
-			getLabeNotes().setVisible(false);
+			getLabeNotes().setVisible(false);			
+//			getjPanel1().remove(getjScrollPane1());
 			getTa_Notes().setVisible(false);
-
+//			getjScrollPane1().setVisible(false);
+			getjScrollPane1().setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+			
 			setFormButtonAndTextState();
 			
 
@@ -113,6 +118,8 @@ public class WilayahDesaView extends FormTemplate1_IntFrame{
 			
 			getLabelGroup1().setText("KECAMATAN");
 			getLabelGroup2().setText("KECAMATAN");
+			
+			
 
 		}
 		

@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
@@ -90,8 +91,11 @@ public class WilayahPropinsiView extends FormTemplate1_IntFrame{
 			getCombo_Group1().setVisible(false);
 			getCombo_Group2().setVisible(false);
 
-			getLabeNotes().setVisible(false);
+			getLabeNotes().setVisible(false);			
+//			getjPanel1().remove(getjScrollPane1());
 			getTa_Notes().setVisible(false);
+//			getjScrollPane1().setVisible(false);
+			getjScrollPane1().setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 			
 			getBtnFilter().setVisible(false);
 						
