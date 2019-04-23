@@ -138,7 +138,7 @@ public class Kecamatan {
 	}
 	@Override
 	public String toString() {
-		return "Kecamatan [ID=" + ID + ", kode1=" + kode1 + "]";
+		return kode1 + " " + description;
 	}
 
 	

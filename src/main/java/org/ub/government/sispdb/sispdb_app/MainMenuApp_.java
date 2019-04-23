@@ -22,7 +22,7 @@ import org.ub.government.sispdb.sispdb_gui.utilitas.tabulasi_to_text.TabExtractT
  *
  * @author yhawin
  */
-public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
+public class MainMenuApp_ extends MainMenuFrame_ implements MainMenuListenerInter_{
 
     WilayahIntFrame masterWilayahView = null;
     
@@ -33,7 +33,7 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
 
     TabExtractToTextFrame tabExtractToTextView = null;
     
-    public MainMenuApp(){
+    public MainMenuApp_(){
         initMenuListener();
         initViews();
     }

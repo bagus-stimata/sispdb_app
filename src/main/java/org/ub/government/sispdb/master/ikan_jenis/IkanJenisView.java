@@ -3,6 +3,7 @@ package org.ub.government.sispdb.master.ikan_jenis;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
 
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.ub.government.sispdb.model.IkanSubKelas;
 import org.ub.government.sispdb.model_enum.EnumStatusOperasiForm;
 import org.ub.government.sispdb.model_table.ComboBoxModel_IkanSubKelas;
@@ -99,6 +101,12 @@ public class IkanJenisView extends FormTemplate1_IntFrame{
 			getLabelGroup2().setVisible(false);
 //			getCombo_Group1().setVisible(false);
 			getCombo_Group2().setVisible(false);
+
+			getCombo_Group1().setEditable(true);
+			getCombo_Group2().setEditable(true);
+			
+//			AutoCompleteDecorator.decorate(getCombo_Group1());
+//			AutoCompleteDecorator.decorate(getCombo_Group2());
 
 			getBtnFilter().setVisible(false);
 
@@ -184,16 +192,37 @@ public class IkanJenisView extends FormTemplate1_IntFrame{
 			IkanSubKelas[] itemsArray = new IkanSubKelas[model.listGrup1.size()];
 			itemsArray = model.listGrup1.toArray(itemsArray);
 			
-			getCombo_Group1().setModel(new DefaultComboBoxModel<IkanSubKelas>(itemsArray));
+//			getCombo_Group1().setEditable(true);
+			ComboBoxModel_IkanSubKelas myModel1 = new ComboBoxModel_IkanSubKelas(itemsArray);
+			getCombo_Group1().setModel(myModel1);
 			getCombo_Group1().setRenderer(new ComboBoxGroup1Renderer());
 									
-			ComboBoxModel_IkanSubKelas myModel = new ComboBoxModel_IkanSubKelas(itemsArray);
-			getCombo_Group2().setModel(new DefaultComboBoxModel<IkanSubKelas>(itemsArray));
+//			ComboBoxModel_IkanSubKelas myModel = new ComboBoxModel_IkanSubKelas(itemsArray);
+//			getCombo_Group2().setModel(new DefaultComboBoxModel<IkanSubKelas>(itemsArray));
+//			getCombo_Group2().setRenderer(new ComboBoxGroup1Renderer());
+			
+			AutoCompleteDecorator.decorate(getCombo_Group1());
+			AutoCompleteDecorator.decorate(getCombo_Group2());
 
-			getCombo_Group2().setRenderer(new ComboBoxGroup1Renderer());
 			
 		}
 
+		private static ActionListener createSearchActionListener(JComboBox<String> comboBox, JTable table) {
+		      return e -> {
+		          if ("comboBoxChanged".equals(e.getActionCommand())) {
+		              String searchText = (String) comboBox.getSelectedItem();
+		              searchText = searchText.trim().toLowerCase();
+		              //if there are matches then add the search text in combo for later use
+//		              if (TableHelper.searchInTable(table, searchText)) {
+//		                  DefaultComboBoxModel<String> model = (DefaultComboBoxModel<String>) comboBox.getModel();
+//		                  //check if search text is not empty and model already doesn't have it.
+//		                  if (!searchText.isEmpty() && model.getIndexOf(searchText) == -1) {
+//		                      model.addElement(searchText);
+//		                  }
+//		              }
+		          }
+		      };
+		  }
 		public void reloadDataGrid1(){
 			
 //			grid1.setDataProvider(dataProvider);
@@ -568,7 +597,8 @@ class ComboBoxGroup1Renderer extends JLabel implements ListCellRenderer<IkanSubK
 	//        setText("<html>" + content + "</html>");
 	        
 	//		String content2 = String.format("%20s %s", country.getKode1(), country.getDescription());
-			String content2 = String.format("%2s %-15s %s", "",domain.getKode1(), domain.getDescription()) ;
+//			String content2 = String.format("%2s %-15s %s", "",domain.getKode1(), domain.getDescription()) ;
+			String content2 = domain.getKode1() + "  " + domain.getDescription() ;
 	        setText(content2);
 	        
 	        if (isSelected) {

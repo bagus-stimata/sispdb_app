@@ -140,7 +140,7 @@ public class Desa {
 	}
 	@Override
 	public String toString() {
-		return "Desa [ID=" + ID + ", kode1=" + kode1 + "]";
+		return kode1 + " " + description;
 	}
 
 	

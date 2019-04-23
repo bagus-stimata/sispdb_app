@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
 
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.ub.government.sispdb.model.Desa;
 import org.ub.government.sispdb.model.Kecamatan;
 import org.ub.government.sispdb.model_enum.EnumStatusOperasiForm;
@@ -198,11 +199,14 @@ public class WilayahDesaView extends FormTemplate1_IntFrame{
 			
 			getCombo_Group1().setModel(new DefaultComboBoxModel<Kecamatan>(itemsArray));
 			getCombo_Group1().setRenderer(new ComboBoxGroup1Renderer());
-									
-			ComboBoxModel_IkanSubKelas myModel = new ComboBoxModel_IkanSubKelas(itemsArray);
-			getCombo_Group2().setModel(new DefaultComboBoxModel<Kecamatan>(itemsArray));
+
+			//			ComboBoxModel_IkanSubKelas myModel = new ComboBoxModel_IkanSubKelas(itemsArray);
+//			getCombo_Group2().setModel(new DefaultComboBoxModel<Kecamatan>(itemsArray));
 
 			getCombo_Group2().setRenderer(new ComboBoxGroup1Renderer());
+			
+			getCombo_Group1().setEditable(true);
+			AutoCompleteDecorator.decorate(getCombo_Group1());
 			
 		}
 
@@ -581,6 +585,7 @@ class ComboBoxGroup1Renderer extends JLabel implements ListCellRenderer<Kecamata
 	        
 	//		String content2 = String.format("%20s %s", country.getKode1(), country.getDescription());
 			String content2 = String.format("%2s %-15s %s", "",domain.getKode1(), domain.getDescription()) ;
+//			String content2 =  domain.getKode1() + " " + domain.getDescription() ;
 	        setText(content2);
 	        
 	        if (isSelected) {

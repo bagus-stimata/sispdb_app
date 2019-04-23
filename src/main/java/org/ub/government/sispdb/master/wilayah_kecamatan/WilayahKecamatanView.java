@@ -28,6 +28,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
 
 import org.ub.government.sispdb.model.Kecamatan;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import org.ub.government.sispdb.model.Kabupaten;
 import org.ub.government.sispdb.model_enum.EnumStatusOperasiForm;
 import org.ub.government.sispdb.model_table.ComboBoxModel_IkanSubKelas;
@@ -200,6 +201,14 @@ public class WilayahKecamatanView extends FormTemplate1_IntFrame{
 			getCombo_Group2().setModel(new DefaultComboBoxModel<Kabupaten>(itemsArray));
 
 			getCombo_Group2().setRenderer(new ComboBoxGroup1Renderer());
+			
+			
+			getCombo_Group1().setEditable(true);
+			getCombo_Group2().setEditable(true);
+			AutoCompleteDecorator.decorate(getCombo_Group1());
+			AutoCompleteDecorator.decorate(getCombo_Group2());
+			
+
 			
 		}
 

@@ -135,7 +135,7 @@ public class AlatTangkap {
 	}
 	@Override
 	public String toString() {
-		return "AlatTangkap [ID=" + ID + ", kode1=" + kode1 + "]";
+		return kode1 + " " + description;
 	}
 
 	

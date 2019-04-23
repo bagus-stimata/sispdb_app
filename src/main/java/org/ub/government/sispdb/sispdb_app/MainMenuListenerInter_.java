@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
  *
  * @author yhawin
  */
-public interface MainMenuListenerInter {
+public interface MainMenuListenerInter_ {
    
    public void menuItem_SettingParamenterSistem_ActionPerformed(ActionEvent evt);
    public void menuItem_SettingPengguna_ActionPerformed(ActionEvent evt);
