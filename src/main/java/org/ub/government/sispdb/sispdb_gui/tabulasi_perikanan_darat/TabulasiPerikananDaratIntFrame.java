@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_laut;
+package org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_darat;
 
 import com.toedter.calendar.JDateChooser;
 import java.util.Date;
@@ -21,29 +21,29 @@ import org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_laut.*;
  *
  * @author yhawin
  */
-public class TabulasiPerikananLautIntFrame extends javax.swing.JInternalFrame {
+public class TabulasiPerikananDaratIntFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form WilayahIntFrame
      */
-    public TabulasiPerikananLautIntFrame() {
+    public TabulasiPerikananDaratIntFrame() {
         initComponents();
         
         resetDisplay_TextAndLabel();
         resetKeyboardActions();
-       tanggal();
+        tanggal();
     }
-    
     
     private void tanggal() {
     	
-      	 Date date = new Date();
-      	
-      	jDateChooser1.setDate(date);
-      	jDateChooser1.setDateFormatString("dd-MM-yyyy");
-        
-   		
-   	}
+   	 Date date = new Date();
+   	
+   	jDateChooser1.setDate(date);
+   	jDateChooser1.setDateFormatString("dd-MM-yyyy");
+     
+		
+	}
+    
     public void resetDisplay_TextAndLabel(){
         tf_ID.setText("");
 //        tf_Tanggal.setText("");
@@ -321,7 +321,7 @@ public class TabulasiPerikananLautIntFrame extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("TABULASI PERIKANAN TANGKAP LAUT");
+        setTitle("TABULASI PERIKANAN UMUM DARAT");
         setMaximumSize(new java.awt.Dimension(214748364, 214748364));
         setPreferredSize(new java.awt.Dimension(1086, 650));
 
@@ -702,7 +702,7 @@ public class TabulasiPerikananLautIntFrame extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel3.setText("PERIKANAN TANGKAP LAUT");
+        jLabel3.setText("PERIKANAN UMUM DARAT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

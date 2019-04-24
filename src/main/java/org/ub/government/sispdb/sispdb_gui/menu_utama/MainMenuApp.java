@@ -11,8 +11,11 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import org.eclipse.persistence.internal.sessions.DirectCollectionChangeRecord.NULL;
+import org.ub.government.sispdb.master.alat_tangkap.AlatTangkapView;
 import org.ub.government.sispdb.master.ikan_jenis.IkanJenisView;
 import org.ub.government.sispdb.master.ikan_subkelas.IkanSubKelasView;
+import org.ub.government.sispdb.master.jenis_perairan.JenisPerairanView;
 import org.ub.government.sispdb.master.lokasi_upt.LokasiUptView;
 import org.ub.government.sispdb.master.pemerintahan_pemda.PemerintahanPemdaView;
 import org.ub.government.sispdb.master.pemerintahan_pemprop.PemerintahanPempropView;
@@ -22,9 +25,11 @@ import org.ub.government.sispdb.master.wilayah_desa.WilayahDesaView;
 import org.ub.government.sispdb.master.wilayah_kabupatenkota.WilayahKabupatenView;
 import org.ub.government.sispdb.master.wilayah_kecamatan.WilayahKecamatanView;
 import org.ub.government.sispdb.master.wilayah_propinsi.WilayahPropinsiView;
+import org.ub.government.sispdb.model.AlatTangkap;
 import org.ub.government.sispdb.sispdb_gui.master_ikanjenis.IkanJenis_IntFrame;
 import org.ub.government.sispdb.sispdb_gui.master_ikansubkelas.IkanSubKelas_IntFrame;
 import org.ub.government.sispdb.sispdb_gui.master_wilayah.WilayahIntFrame;
+import org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_darat.TabulasiPerikananDaratIntFrame;
 import org.ub.government.sispdb.sispdb_gui.tabulasi_perikanan_laut.TabulasiPerikananLautIntFrame;
 import org.ub.government.sispdb.sispdb_gui.utilitas.tabulasi_to_text.TabExtractToTextFrame;
 
@@ -37,6 +42,7 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
 
     WilayahIntFrame wilayahView = null;
     
+    
     IkanJenisView jenisIkanView = null;
     IkanSubKelasView subKelasView = null;
     LokasiUptView uptView = null;
@@ -45,6 +51,9 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
     WilayahKecamatanView wilayahKecamatanView = null;
     WilayahKabupatenView wilayahKabupatenView = null;
     WilayahPropinsiView wilayahPropinsiView = null;
+    
+    AlatTangkapView alatTangkapView = null;
+    JenisPerairanView jenisPerairanView = null;
 
     PemerintahanUnitKerjaView pemerintahanUnitKerjaView = null;
     PemerintahanSatkerView pemerintahanSatkerView = null;
@@ -52,7 +61,7 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
     PemerintahanPempropView pemerintahanPempropView = null;
  
     TabulasiPerikananLautIntFrame tabulasiPerikananLautView = null;
-
+    TabulasiPerikananDaratIntFrame tabulasiPerikananDaratView = null;
     TabExtractToTextFrame tabExtractToTextView = null;
     
     public MainMenuApp(){
@@ -89,7 +98,7 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
         getMenuItemPemProp().addActionListener(e -> menuItem_MasterPemerintahanPemProv_ActionPerformed(e));
 
         getMenuItemPerikananTangkapLaut().addActionListener(e -> menuItem_TabulasiPerikananTangkapLaut_ActionPerformed(e));
-        getMenuItemPerikananUmumDarat().addActionListener(e -> menuItem_TabulasiPerikananTangkapLaut_ActionPerformed(e));
+        getMenuItemPerikananUmumDarat().addActionListener(e -> menuItem_TabulasiPerikananUmumDarat_ActionPerformed(e));
 
         getMenuItemTabulasiKeText().addActionListener(e -> menuItem_UtilitasDataTabulasiKeExcel_ActionPerformed(e));
         getMenuItemExtractKeExcel().addActionListener(e -> menuItem_UtilitasDataTabulasiKeExcel_ActionPerformed(e));
@@ -138,6 +147,9 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
         jenisIkanView.toFront();
         
     }
+    
+    
+    
     @Override
     public void menuItem_MasterSubKelas_ActionPerformed(ActionEvent evt) {
         if (subKelasView ==null) subKelasView = new IkanSubKelasView();
@@ -167,7 +179,15 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
 
     @Override
     public void menuItem_TabulasiPerikananUmumDarat_ActionPerformed(ActionEvent evt) {
-        
+    	 if (tabulasiPerikananDaratView ==null) tabulasiPerikananDaratView = new TabulasiPerikananDaratIntFrame();
+         if (! tabulasiPerikananDaratView.isShowing()) {
+             Dimension dim = new Dimension(500, 500);
+             tabulasiPerikananDaratView.setPreferredSize(dim);
+             tabulasiPerikananDaratView.setVisible(true);
+             getjDesktopPane1().add(tabulasiPerikananDaratView);
+         }
+         tabulasiPerikananDaratView.requestFocusInWindow();
+         tabulasiPerikananDaratView.toFront();
     }
 
     @Override
@@ -216,12 +236,28 @@ public class MainMenuApp extends MainMenuFrame implements MainMenuListenerInter{
 	@Override
 	public void menuItem_MasterAlatTangkap_ActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-		
+		 if (alatTangkapView ==null) alatTangkapView = new AlatTangkapView();
+	        if (! alatTangkapView.isShowing()) {
+	            Dimension dim = new Dimension(500, 500);
+	            alatTangkapView.setPreferredSize(dim);
+	            alatTangkapView.setVisible(true);
+	            getjDesktopPane1().add(alatTangkapView);
+	        }
+	        alatTangkapView.requestFocusInWindow();
+	        alatTangkapView.toFront();
 	}
 	@Override
 	public void menuItem_MasterJenisPerairan_ActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-		
+		   if (jenisPerairanView ==null) jenisPerairanView = new JenisPerairanView();
+	        if (! jenisPerairanView.isShowing()) {
+	            Dimension dim = new Dimension(500, 500);
+	            jenisPerairanView.setPreferredSize(dim);
+	            jenisPerairanView.setVisible(true);
+	            getjDesktopPane1().add(jenisPerairanView);
+	        }
+	        jenisPerairanView.requestFocusInWindow();
+	        jenisPerairanView.toFront();
 	}
 	@Override
 	public void menuItem_MasterLokasiUpt_ActionPerformed(ActionEvent evt) {

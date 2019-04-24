@@ -94,7 +94,7 @@ public class PemerintahanPemdaView extends FormTemplate1_IntFrame{
 		}
 		
 		public void initComponentView(){
-			this.setTitle("MASTER KABUPATEN/KOTA");
+			this.setTitle("MASTER PEMERINTAHAN DAERAH");
 			
 			
 //			getLabelGroup1().setVisible(false);
